@@ -12,7 +12,6 @@
 namespace Isotope;
 
 
-use HeimrichHannot\HastePlus\Arrays;
 use Isotope\Model\ProductCollection\Order;
 use Isotope\Model\Subscription;
 use Isotope\Model\SubscriptionArchive;
@@ -94,10 +93,7 @@ class IsotopeSubscriptions
 
 				foreach (deserialize($arrAddressFields, true) as $strName)
 				{
-					if ($strName == 'gender' && Arrays::isSerialized($objAddress->{$strName}))
-						$objSubscription->{$strName} = deserialize($objAddress->{$strName}, true)[0];
-					else
-						$objSubscription->{$strName} = $objAddress->{$strName};
+					$objSubscription->{$strName} = $objAddress->{$strName};
 				}
 
 				$objSubscription->email = $strEmail;
