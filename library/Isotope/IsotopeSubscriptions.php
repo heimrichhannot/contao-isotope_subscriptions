@@ -12,6 +12,7 @@
 namespace Isotope;
 
 
+use HeimrichHannot\HastePlus\Arrays;
 use Isotope\Model\ProductCollection\Order;
 use Isotope\Model\Subscription;
 use Isotope\Model\SubscriptionArchive;
