@@ -29,7 +29,7 @@ class IsotopeSubscriptions
 	{
 		$strEmail = $objOrder->getBillingAddress()->email;
 
-		if ($objModule->iso_subscriptionArchive &&
+		if ((!$objModule->iso_addSubscriptionCheckbox || \Input::post('subscribeToProduct')) && $objModule->iso_subscriptionArchive &&
 			($objSubscriptionArchive = SubscriptionArchive::findByPk($objModule->iso_subscriptionArchive)) !== null) {
 			if (Subscription::findBy(array('email=?', 'pid=?', 'disable!=?'), array($strEmail, $objSubscriptionArchive->id, 1))
 				!== null
@@ -59,7 +59,7 @@ class IsotopeSubscriptions
 
 		if (($objModule = \ModuleModel::findByPk($intModule)) !== null && $objModule->iso_addSubscription)
 		{
-			if ($objModule->iso_subscriptionArchive)
+			if ($objModule->iso_subscriptionArchive && (!$objModule->iso_addSubscriptionCheckbox || \Input::post('subscribeToProduct')))
 			{
 				$objSubscription = Subscription::findOneBy(array('email=?', 'pid=?', 'activation!=?', 'disable=?'),
 					array($strEmail, $objModule->iso_subscriptionArchive, '', 1));
@@ -100,7 +100,7 @@ class IsotopeSubscriptions
 				$objSubscription->email = $strEmail;
 				$objSubscription->pid = $objModule->iso_subscriptionArchive;
 				$objSubscription->tstamp = $objSubscription->dateAdded = time();
-				$objSubscription->quantity = $objOrder->sumItemsQuantity();
+				$objSubscription->quantity = \Input::post('quantity');
 				$objSubscription->order_id = $objOrder->id;
 				$objSubscription->save();
 			}

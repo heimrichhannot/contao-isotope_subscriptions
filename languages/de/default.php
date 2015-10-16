@@ -16,3 +16,4 @@ $GLOBALS['TL_LANG']['MSC']['iso_subscriptionTokenNotFound'] = 'Der Aktivierungsl
  */
 $GLOBALS['TL_LANG']['MSC']['order'] = 'Bestellung';
 $GLOBALS['TL_LANG']['MSC']['cancel'] = 'Kündigen';
+$GLOBALS['TL_LANG']['MSC']['subscribeToProduct'] = 'Diesen Artikel abonnieren';
