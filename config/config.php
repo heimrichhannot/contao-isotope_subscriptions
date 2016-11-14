@@ -39,3 +39,10 @@ $arrNotifications['iso_subscription_activation']['email_text'][] = 'link';
  */
 $GLOBALS['TL_MODELS'][\Isotope\Model\Subscription::getTable()] = 'Isotope\Model\Subscription';
 $GLOBALS['TL_MODELS'][\Isotope\Model\SubscriptionArchive::getTable()] = 'Isotope\Model\SubscriptionArchive';
+
+
+/**
+ * Add permissions
+ */
+$GLOBALS['TL_PERMISSIONS'][] = 'subscriptions';
+$GLOBALS['TL_PERMISSIONS'][] = 'subscriptionp';
