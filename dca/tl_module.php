@@ -97,6 +97,7 @@ if (in_array('isotope_plus', \ModuleLoader::getActive()))
     $arrDca['fields']['iso_direct_checkout_product_types']['fieldpalette']['palettes']['default'] .= ',iso_addSubscription';
     $arrDca['fields']['iso_direct_checkout_product_types']['fieldpalette']['subpalettes']['iso_addSubscription'] =
         'iso_subscriptionArchive,iso_addActivation';
+    echo '';
 }
 
 
@@ -106,8 +107,6 @@ class tl_module_isotope_subscriptions
     {
         $objModule = \ModuleModel::findByPk(\Input::get('id'));
         $arrDca    = &$GLOBALS['TL_DCA']['tl_module'];
-
-
 
         switch ($objModule->type)
         {
@@ -142,6 +141,8 @@ class tl_module_isotope_subscriptions
         $objModule = \ModuleModel::findByPk($objFieldPalette->pid);
         $arrDca    = &$GLOBALS['TL_DCA']['tl_fieldpalette'];
 
+        \Controller::loadDataContainer('tl_module');
+
         switch ($objModule->type)
         {
             case 'iso_direct_checkout':
@@ -150,7 +151,7 @@ class tl_module_isotope_subscriptions
                     $arrDca['subpalettes']['iso_addSubscription'] = str_replace(
                         'iso_subscriptionArchive',
                         'iso_subscriptionArchive,iso_addSubscriptionCheckbox',
-                        $arrDca['subpalettes']['iso_addSubscription']
+                        $GLOBALS['TL_DCA']['tl_module']['subpalettes']['iso_addSubscription']
                     );
                 }
             // no break!
@@ -160,7 +161,7 @@ class tl_module_isotope_subscriptions
                     $arrDca['subpalettes']['iso_addSubscription'] = str_replace(
                         'iso_addActivation',
                         'iso_addActivation,iso_activationNotification,iso_activationJumpTo',
-                        $arrDca['subpalettes']['iso_addSubscription']
+                        $GLOBALS['TL_DCA']['tl_module']['subpalettes']['iso_addSubscription']
                     );
                 }
                 break;
@@ -168,3 +169,4 @@ class tl_module_isotope_subscriptions
     }
 
 }
+
