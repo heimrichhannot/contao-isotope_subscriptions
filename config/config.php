@@ -29,6 +29,8 @@ $GLOBALS['FE_MOD']['isotope_subscriptions'] = array(
 $GLOBALS['ISO_HOOKS']['preCheckout']['setCheckoutModuleIdSubscriptions'] = array('Isotope\IsotopeSubscriptions', 'setCheckoutModuleIdSubscriptions');
 $GLOBALS['ISO_HOOKS']['preCheckout']['checkForExistingSubscription']     = array('Isotope\IsotopeSubscriptions', 'checkForExistingSubscription');
 $GLOBALS['ISO_HOOKS']['postCheckout']['addSubscriptions']                = array('Isotope\IsotopeSubscriptions', 'addSubscriptions');
+$GLOBALS['TL_HOOKS']['preLoginRegistration']['checkUsernameForIsoSubscription'] = array('Isotope\IsotopeSubscriptions', 'checkUsernameForIsoSubscription');
+$GLOBALS['TL_HOOKS']['preRegistration']['checkUsernameForIsoSubscription']      = array('Isotope\IsotopeSubscriptions', 'checkUsernameForIsoSubscription');
 
 /**
  * Notification center notification types

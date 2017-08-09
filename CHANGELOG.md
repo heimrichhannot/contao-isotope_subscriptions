@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.9] 2017-08-08
+
+### Added
+- Hook for preRegistration and preLoginRegistration to check if user has iso-subscription
+
 ## [1.0.8] 2017-02-06
 
 ### Fixed

@@ -23,7 +23,8 @@
 		"contao/core": ">=3.2,<4-dev",
 		"contao-community-alliance/composer-installer": "*",
 		"isotope/isotope-core": "*",
-		"heimrichhannot/contao-haste_plus": ">=1.0.8"
+		"heimrichhannot/contao-haste_plus": ">=1.0.8",
+		"heimrichhannot/contao-member_plus": ">=2.0.34"
 	},
 	"autoload": {
 		"classmap": [

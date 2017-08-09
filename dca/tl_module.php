@@ -9,6 +9,9 @@ $arrDca['palettes']['iso_activation']   =
     '{title_legend},name,headline,type;{redirect_legend],jumpTo;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;';
 $arrDca['palettes']['iso_cancellation'] =
     '{title_legend},name,headline,type;{config_legend},iso_cancellationArchives,nc_notification;{redirect_legend],jumpTo;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;';
+$arrDca['palettes']['login_registration_plus'] = str_replace('newsletters;', 'newsletters,iso_checkForExitingSubscription;', $arrDca['palettes']['login_registration_plus']);
+
+$arrDca['palettes']['registration_plus'] = str_replace('newsletters;', 'newsletters,iso_checkForExitingSubscription;', $arrDca['palettes']['registration_plus']);
 
 /**
  * Subpalettes

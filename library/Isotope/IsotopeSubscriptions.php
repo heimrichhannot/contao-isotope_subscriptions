@@ -223,4 +223,28 @@ class IsotopeSubscriptions
 		$arrDca['palettes']['default'] .= ';' . $strInitialPalette;
 	}
 
+	public function checkUsernameForIsoSubscription($id, $objActiveRecord, $objModule)
+	{
+		$username = Request::getPost('username') ? Request::getPost('username') : Request::getPost('email');
+		
+		// check if user has a subscribtion
+		if ($objModule->iso_checkForExitingSubscription && ($objSubscription = Subscription::findBy('email', $username)) === null) {
+			$_SESSION['LOGIN_ERROR'] = $GLOBALS['TL_LANG']['MSC']['noAbonement'];
+			\Controller::reload();
+		}
+		
+		if (($objMember = \MemberModel::findByUsername($username)) !== null) {
+			$arrGroups = deserialize($objMember->groups);
+			
+			foreach (deserialize($objModule->reg_groups) as $group) {
+				if (!in_array($group, $arrGroups)) {
+					$arrGroups[] = $group;
+				}
+			}
+			
+			$objMember->groups = serialize($arrGroups);
+			
+			$objMember->save();
+		}
+	}
 }
