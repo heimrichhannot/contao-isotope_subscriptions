@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.10] 2017-09-20
+
+### Fixed
+- field iso_checkForExistingSubscription was missing
+
 ## [1.0.9] 2017-08-08
 
 ### Added

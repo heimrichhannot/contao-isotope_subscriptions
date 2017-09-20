@@ -58,7 +58,15 @@ $arrFields = array(
         'eval'      => array('tl_class' => 'w50 clr', 'submitOnChange' => true),
         'sql'       => "char(1) NOT NULL default ''",
     ),
-    'iso_activationJumpTo' => $arrDca['fields']['jumpTo']
+    'iso_activationJumpTo' => $arrDca['fields']['jumpTo'],
+    'iso_checkForExitingSubscription' => [
+		'label'     => &$GLOBALS['TL_LANG']['tl_module']['iso_checkForExitingSubscription'],
+		'exclude'   => true,
+		'filter'    => true,
+		'inputType' => 'checkbox',
+		'eval'      => ['tl_class' => 'w50'],
+		'sql'       => "char(1) NOT NULL default ''",
+	] 	
 );
 
 $arrFields['iso_activationJumpTo']['label']            = &$GLOBALS['TL_LANG']['tl_module']['iso_activationJumpTo'];
