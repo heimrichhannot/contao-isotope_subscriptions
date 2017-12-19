@@ -14,8 +14,8 @@ namespace Isotope;
 
 use HeimrichHannot\FieldPalette\FieldPaletteModel;
 use HeimrichHannot\HastePlus\Arrays;
+use HeimrichHannot\Request\Request;
 use Isotope\Model\Product\Standard;
-use Isotope\Model\ProductCollection;
 use Isotope\Model\ProductCollection\Order;
 use Isotope\Model\Subscription;
 use Isotope\Model\SubscriptionArchive;

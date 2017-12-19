@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.11] 2017-12-19
+
+### Fixed
+- missing `HeimrichHannot\Request\Request` use statement in `Isotope\IsotopeSubscriptions`
+
 ## [1.0.10] 2017-09-20
 
 ### Fixed
